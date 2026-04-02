@@ -1,0 +1,8 @@
+const [txs, setTxs] = useState(() => {
+  const saved = localStorage.getItem("finArcTx");
+  return saved ? JSON.parse(saved) : SEED;
+});
+
+useEffect(() => {
+  localStorage.setItem("finArcTx", JSON.stringify(txs));
+}, [txs]);
